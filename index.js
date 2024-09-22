@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
   app.use(expressLayouts)
 
   // Rute untuk mengunggah file
-  app.post('/api/upload', (req, res, next) => {
+  app.post('/darkwebindo/api/upload', (req, res, next) => {
     upload.single('file')(req, res, (err) => {
       if (err) {
         res.send('error')
@@ -31,14 +31,14 @@ const storage = multer.diskStorage({
     });
   });
   
-app.get('/', (req, res)=>{
+app.get('/darkwebindo', (req, res)=>{
   res.render('home', {
     layout : 'layouts'
   })
 })
 app.use((req, res)=>{
   res.status(404);
-  res.send('error 404')
+  res.send('<h1>error tai</h1>')
 })
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
