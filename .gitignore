@@ -57,7 +57,5 @@ coverage/
 *.tsbuildinfo
 
 #videos 
-public/
-videos/
 *.mp4
 *.jpg
