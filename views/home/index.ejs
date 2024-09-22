@@ -1,0 +1,60 @@
+<div class="container-md">
+    <form id="uploadForm">
+        <input type="file" id="fileInput" name="file" required>
+        <button class="btn btn-primary d-block" type="submit">Upload</button>
+    </form>
+    <div id="progressContainer" style="margin-top: 20px;">
+        <progress id="progressBar" value="0" max="100" style="width: 100%;"></progress>
+        <span id="progressText">0%</span>
+    </div>
+</div>
+
+<script>
+document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Mencegah pengiriman form secara default
+
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];  // Mengambil file yang dipilih
+
+    // Cek apakah ada file yang dipilih
+    if (!file) {
+        alert('Silakan upload file terlebih dahulu.');
+        return;  // Hentikan eksekusi jika tidak ada file
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3000/api/upload', true);  // Pastikan URL benar
+
+    // Menangani event progress upload
+    xhr.upload.onprogress = function(event) {
+        if (event.lengthComputable) {
+            const percentComplete = Math.round((event.loaded / event.total) * 100);
+            document.getElementById('progressBar').value = percentComplete;
+            document.getElementById('progressText').innerText = percentComplete + '%';
+        }
+    };
+
+    // Jika berhasil
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert('Upload berhasil!');
+            // Reset progress bar dan text
+            document.getElementById('progressBar').value = 0;
+            document.getElementById('progressText').innerText = '0%';
+        } else {
+            alert('Upload gagal!');
+        }
+    };
+
+    // Jika gagal
+    xhr.onerror = function() {
+        alert('Terjadi error pada upload file.');
+    };
+
+    // Mengirimkan file
+    xhr.send(formData);
+});
+</script>
