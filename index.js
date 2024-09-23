@@ -6,7 +6,7 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'videos/');  // Path relatif untuk folder 'uploads'
+      cb(null, 'public/media/');  // Path relatif untuk folder 'uploads'
     },
     filename: function (req, file, cb) {
       cb(null, file.originalname);  // Gunakan nama asli file
@@ -17,12 +17,12 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
   
   // Membuat folder 'uploads' dapat diakses secara publik
-  app.use('/uploads', express.static('uploads'));
+  app.use('/public', express.static('public'));
   app.set('view engine', 'ejs')
   app.use(expressLayouts)
 
   // Rute untuk mengunggah file
-  app.post('/darkwebindo/api/upload', (req, res, next) => {
+  app.post('/api/upload', (req, res, next) => {
     upload.single('file')(req, res, (err) => {
       if (err) {
         res.send('error')
@@ -31,14 +31,14 @@ const storage = multer.diskStorage({
     });
   });
   
-app.get('/darkwebindo', (req, res)=>{
+app.get('/', (req, res)=>{
   res.render('home', {
     layout : 'layouts'
   })
 })
 app.use((req, res)=>{
   res.status(404);
-  res.send('<h1>error tai</h1>')
+  res.send('<div style=position: absolute, top: 0;bottom: 0;left: 0;right:0;background-color:red;><h1>ERROR TAI</h1></div>')
 })
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
