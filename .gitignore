@@ -56,4 +56,5 @@ coverage/
 # TypeScript build outputs
 *.tsbuildinfo
 
-/public
+*.mp4
+
