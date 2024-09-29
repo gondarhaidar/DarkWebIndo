@@ -1,0 +1,25 @@
+*{
+    box-sizing : border-box;
+}
+html, body{
+    overflow-x : hidden;
+}
+.brdr{
+    border : 3px solid black;
+    background-color : blue;
+}
+.row-card{
+    width : 18rem;
+    height : auto;
+}
+.mw100 {
+    max-width : 100%;
+}
+#w-card{
+    width: 20rem;
+}
+@media(max-width : 500px){
+    #w-card{
+        width : 100%;
+    }
+}
