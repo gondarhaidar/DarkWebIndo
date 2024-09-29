@@ -1,6 +1,15 @@
-<div class="container-md">
-    <form action="/api/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <button class="btn btn-primary d-block" type="submit">Upload</button>    
-    </form>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <% for(let i=0;i<20;i++) { %>
+            <div class="card m-2" id="w-card">
+                <video controls style="height: 18rem;">
+                    <source src="/public/media/tes2.mp4"/>
+                </video>
+                <div class="card-body">
+                  <p class="card-text fw-bold">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="" class="text-decoration-none">baca selengkapnya ....</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
 </div>
