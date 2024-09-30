@@ -1,11 +1,18 @@
 import Content from "../models/Content.js";
+import multer from "multer";
+
+const storage = multer.diskStorage({
+    destination : (req, res, cb) => {
+        cb(null, './public/media')
+    }
+})
 
 const getContent = async (req, res) => {
     res.render('home/index')
 }
-const createContent = async (req, res) => {
-    console.log(req.body)
-    res.status(200).json({data : req.body})
+const createContent = (req, res) => {
+    console.log(req.body.file)
+    res.status(200).json({data : req.body.file})
 }
 const updateContent = async (req, res) => {
 

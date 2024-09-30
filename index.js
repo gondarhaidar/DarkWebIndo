@@ -12,8 +12,9 @@ dotenv.config();
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(router)
 app.use(express.json())
+app.use(express.urlencoded({extended : true}))
+app.use(router)
 app.set('view engine', 'ejs');
 app.use(expressLayouts)
 
@@ -29,5 +30,5 @@ app.use((req, res)=>{
   res.send('error 404')
 })
 app.listen(process.env.DB_PORT, ()=>{
-  console.log(`server running ${process.env.DB_PORT}`)
+  console.log(`server running on port ${process.env.DB_PORT}`)
 })
