@@ -15,7 +15,9 @@ const storage = multer.diskStorage({
 const upload = multer({storage : storage})
 
 const getContent = async (req, res) => {
-    res.render('home/index')
+    res.render('home/index', {
+        title : 'darkwebindo'
+    })
 }
 const createContent = (req, res) => {
     const file = req.file
