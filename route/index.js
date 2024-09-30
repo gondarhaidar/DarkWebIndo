@@ -6,6 +6,6 @@ router.get('/home', Content.getContent);
 router.get('/create', (req, res)=>{
     res.render('home/create')
 });
-router.post('/createContent', Content.createContent)
+router.post('/createContent', Content.upload.single('file') ,Content.createContent)
 
 export default router
