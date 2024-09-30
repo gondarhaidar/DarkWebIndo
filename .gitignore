@@ -54,7 +54,5 @@ coverage/
 *.snap
 
 # TypeScript build outputs
-*.tsbuildinfo
-
-*.mp4
+public/media
 

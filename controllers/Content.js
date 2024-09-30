@@ -6,9 +6,9 @@ const storage = multer.diskStorage({
     destination : (req, res, cb) => {
         cb(null, 'public/media/')
     },
-    filename : (req, res, cb) => {
-        const uniqueName = Date.now() + 'darkwebindo'
-        cb(null, uniqueName)
+    filename: function (req, file, cb) {
+        const uniqueName = Date.now() + path.extname(file.originalname)
+        cb(null, uniqueName);  // Gunakan nama asli file
     }
 })
 
@@ -18,8 +18,9 @@ const getContent = async (req, res) => {
     res.render('home/index')
 }
 const createContent = (req, res) => {
+    const file = req.file
         console.log(file.filename);
-        res.send(file.filename)
+        res.send(path.extname(file.filename))
 }
 const updateContent = async (req, res) => {
 

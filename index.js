@@ -8,8 +8,14 @@ import dotenv from 'dotenv';
 import sequelize from './config/config.js';
 import Content from './models/Content.js';
 import User from './models/User.js';
+import fs from 'fs';
 dotenv.config();
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const publicMedia = path.join(__dirname, 'public/media');
+if(!fs.existsSync('public/media')){
+  fs.mkdirSync(publicMedia, {recursive : true});
+  console.log('Direktori public/media berhasil dibuat')
+}
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
@@ -25,7 +31,6 @@ app.use(expressLayouts)
 //   .catch(err => {
 //     console.log(err, 'gagal sinkron')
 //   })
-
 app.use((req, res)=>{
   res.send('error 404')
 })
