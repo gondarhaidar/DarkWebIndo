@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create post</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container mx-auto">
+        <div>
+            <form action="/adminCreate" method="post" enctype="multipart/form-data">
+                <div class="max-w-lg border border-slate-200 rounded-md shadow-md font-inter p-4">
+                    <label for="judul" class="mb-4 block">
+                        <span class="font-bold mb-1 text-slate-800">Judul</span>
+                        <input type="text" name="judul" id="judul" placeholder="Judul" class="w-full px-3 py-2 border shadow block placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 rounded">
+                    </label>
+                    <label for="Deskripsi" class="block mb-4">
+                        <span class="font-bold mb-1 text-slate-800">Deskripsi</span>
+                        <textarea type="text" name="desc" id="Deskripsi" placeholder="Deskripsi" class="w-full px-3 py-2 border shadow block placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 rounded"></textarea>
+                    </label>
+                    <label for="backup" class="block mb-4">
+                        <span class="font-bold mb-1 text-slate-800">Backup link</span>
+                        <input type="text" name="backup_link" id="backup" placeholder="backup" class="w-full px-3 py-2 border shadow block placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 rounded">
+                    </label>
+                    <label for="video" class="block mb-4">
+                        <span class="font-bold mb-1 text-slate-800">Video</span>
+                        <input type="file" name="file" id="video" placeholder="Video" class="w-full px-3 py-2 border shadow block placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 rounded">
+                    </label>
+                    <input type="hidden" name="slug" id="slug" value="">
+
+                    <button type="submit" class="rounded px-3 py-2 text-lg bg-sky-800 text-slate-300 w-full">Posting</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let judul = document.getElementById('judul')
+    let slug = document.getElementById('slug')
+
+    judul.addEventListener('change', ()=>{
+        let judulArr = judul.value.split(" ")
+        console.log(judulArr)
+        slug.value = judulArr.join("-");
+    })
+</script>
+</html>

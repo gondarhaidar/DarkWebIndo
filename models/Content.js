@@ -18,6 +18,12 @@ const Content = sequelize.define('Content', {
         type : DataTypes.STRING,
         allowNull : false
     },
+    backup_link : {
+        type : DataTypes.STRING
+    },
+    views : {
+        type : DataTypes.INTEGER
+    }
 }, {
     timestamps : true,
     tableName : 'contents'
