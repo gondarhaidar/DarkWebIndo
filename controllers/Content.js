@@ -27,7 +27,7 @@ const getContent = async (req, res) => {
             user : req.session.user
         });
     } catch (err) {
-        res.status(500).json({msg : 'error server'. err})
+        res.status(500).send("<h1>Error Database </h1>")
     }
 }
 
@@ -46,6 +46,7 @@ const showContent = async(req, res) =>{
         });
     }catch(err){
         console.log(err)
+        res.status(400).json({msg : "database error", err});
     }
 }
 
@@ -67,6 +68,7 @@ const searchContent = async(req, res)=>{
         })
     }catch(err){
         console.log(err)
+        res.status(400).json({err, msg : "database error"})
     }
 }
 

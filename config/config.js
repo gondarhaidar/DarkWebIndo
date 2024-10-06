@@ -14,6 +14,6 @@ try {
     await sequelize.authenticate();
     console.log('berhasil connect ke database')
 } catch (error) {
-    console.error('koneksi gagal', err);
+    console.error(error);
 }
 export default sequelize;
