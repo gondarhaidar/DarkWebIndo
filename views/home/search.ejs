@@ -1,0 +1,95 @@
+
+
+<div class="flex flex-col container max-w-[760px] mx-auto font-roboto">
+        <% if (contents.length > 0) { %>
+        <% contents.forEach(content => { %>
+          <div class="bg-white w-full shadow-sm shadow-slate-700 font-[sans-serif] md:rounded-md flex flex-col justify-center items-center mb-3">
+            <a href="/show/<%= content.slug %>" class="max-h-28 overflow-y-hidden desc px-3 pt-3 w-full" id="contentContainer">
+              <h1 class="font-bold font-roboto text-2xl"><%= content.judul %></h1>
+              <p class="text-[13px] font-roboto text-gray-600">
+                <%= new Date(content.createdAt).toLocaleDateString('id-ID', {
+                  year: 'numeric', month: '2-digit', day: '2-digit'
+                }) %> 
+                <%= new Date(content.createdAt).toLocaleTimeString('id-ID', {
+                  hour: '2-digit', minute: '2-digit'
+                }) %>
+              </p>
+              
+              <p class="text-[15px] font-roboto">
+                <%= content.desc %>
+              </p>
+            </a>
+            <a class="text-blue-600 cursor-pointer selengkapnya self-start px-3 font-roboto" id="seeMoreLink">Lihat selengkapnya...</a>
+            <div class="rounded mt-2 w-full bg-[#161616]">
+              <video controls class="max-h-[480px] mx-auto">
+                <source src="/media/<%= content.file_name %>">
+              </video>
+            </div>
+            <div class="flex self-center w-full pl-2 mb-2">
+              <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+            width="15px" height="15px" viewBox="0 0 442.04 442.04"
+            xml:space="preserve">
+              <g>
+                  <g>
+                      <path d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203
+                          c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219
+                          c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367
+                          c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021
+                          c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212
+                          c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071
+                          c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z"/>
+                  </g>
+                  <g>
+                      <path d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188
+                          c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993
+                          c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5
+                          s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z"/>
+                  </g>
+                  <g>
+                      <path d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z"/>
+                  </g>
+              </g>
+              </svg>
+              <span class="text-[13px]"> <%= content.views %></span>
+          </div>
+          </div>
+          <% }) %>
+          <% } else{%>
+              <h1>Hasil pencarian "<%= title %>"" tidak ditemukan</h1>
+              <a href="/home" class="text-blue-800">Kembali ke beranda</a>
+              <% } %>
+        </div>
+    
+  
+  <script>
+    let selengkapnya = document.querySelectorAll('.selengkapnya');
+    let desc = document.querySelectorAll('.desc');
+    selengkapnya.forEach((a, i) => {
+      a.addEventListener('click', ()=>{
+        desc[i].classList.remove('max-h-28')
+        a.classList.add('hidden')
+      })
+    }) 
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const contentContainer = document.getElementById('contentContainer');
+      const seeMoreLink = document.getElementById('seeMoreLink');
+  
+      // Fungsi untuk memeriksa tinggi dan menyembunyikan tautan jika perlu
+      function checkHeight() {
+          const maxHeight = parseFloat(getComputedStyle(contentContainer).maxHeight);
+          const currentHeight = contentContainer.scrollHeight;
+  
+          if (currentHeight < maxHeight) {
+              seeMoreLink.style.display = 'none'; // Sembunyikan tautan
+          } else {
+              seeMoreLink.style.display = 'block'; // Tampilkan tautan
+          }
+      }
+  
+      // Memanggil fungsi untuk memeriksa tinggi saat halaman dimuat
+      checkHeight();
+  });
+  
+  </script>
+  

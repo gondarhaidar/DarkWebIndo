@@ -2,6 +2,8 @@ import Content from "../models/Content.js";
 import multer from "multer";
 import path from 'path';
 import { title } from "process";
+import { Op } from "sequelize";
+// import { title } from "process";
 
 const storage = multer.diskStorage({
     destination : (req, res, cb) => {
@@ -19,6 +21,7 @@ const getContent = async (req, res) => {
     try {
         const contents = await Content.findAll();
         res.render('home/index', {
+            layout : 'layouts/index',
             title : 'DarkWebIndo',
             contents : contents,
             user : req.session.user
@@ -28,11 +31,52 @@ const getContent = async (req, res) => {
     }
 }
 
+const showContent = async(req, res) =>{
+    try{
+        const slug = req.params.slug;
+        const content = await Content.findOne({where : {slug: slug}});
+        let view = content.views;
+        await content.update({
+            views : view + 1
+        })
+        res.status(200).render('home/show', {
+            title : content.judul,
+            layout : 'layouts/index',
+            content
+        });
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const searchContent = async(req, res)=>{
+    try{
+        const q = req.query.q;
+        const contents = await Content.findAll({
+            where : {
+                [Op.or] : {
+                    judul : {[Op.like]: `%${q}%`},
+                    desc : {[Op.like]: `%${q}%`}
+                }
+            }
+        });
+        res.render('home/search', {
+            layout : 'layouts/index',
+            title : q,
+            contents
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+
 const adminDashboard = async (req, res) =>{
     res.render('admin/index', {
         title : 'dashboard'
     })
 }
+
+
 
 const createContent = async (req, res) => {
     try {
@@ -67,4 +111,4 @@ const deleteContent = async (req, res) => {
 const editContent = async (req, res) => {
 
 }
-export default {getContent, createContent, updateContent, deleteContent, editContent, upload, adminDashboard}
+export default {getContent, createContent, updateContent, deleteContent, editContent, upload, adminDashboard, showContent, searchContent}

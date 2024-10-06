@@ -1,82 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <title>Document</title>
-</head>
-<body class="bg-[#f7f7f8]">
-  <nav class="bg-white border-black py-2.5 dark:bg-gray-900">
-    <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <a href="#" class="flex items-center">
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">DarkWebIndo</span>
-        </a>
-        <div class="flex items-center lg:order-2">
-            <div class="hidden mt-2 mr-4 sm:inline-block">
-                <span></span>
-            </div>
-
-            <a href="https://themesberg.com/product/tailwind-css/landing-page"
-                class="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-slate-600 dark:hover:bg-slate-700 focus:outline-none dark:focus:ring-slate-800">Create</a>
-            <button data-collapse-toggle="mobile-menu-2" type="button"
-				class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-				aria-controls="mobile-menu-2" aria-expanded="true">
-				<span class="sr-only">Open main menu</span>
-				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd"
-						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-						clip-rule="evenodd"></path>
-				</svg>
-				<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd"
-						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-						clip-rule="evenodd"></path>
-				</svg>
-			</button>
-        </div>
-        <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1 hidden" id="mobile-menu-2">
-            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>
-                    <a href="#"
-                        class="block py-2 pl-3 pr-4 text-white bg-slate-700 rounded lg:bg-transparent lg:text-slate-700 lg:p-0 dark:text-white"
-                        aria-current="page">Home</a>
-                  </li>
-                  <% 'dwjas' %>
-                  <li>
-                      <a href="#" class="block py-2 pl-3 pr-4 text-white bg-slate-700 rounded lg:bg-transparent lg:text-slate-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
-                  </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 
 <div class="flex flex-col container max-w-[760px] mx-auto font-roboto">
-  <% for(let i=0;i<20;i++) { %>
+  <% contents.forEach(content => { %>
     <div class="bg-white w-full shadow-sm shadow-slate-700 font-[sans-serif] md:rounded-md flex flex-col justify-center items-center mb-3">
-      <div class="max-h-28 overflow-y-hidden desc px-3 pt-3">
-        <h2 class="font-bold text-2xl font-roboto">judul content</h2>
-        <p class="text-[15px] font-roboto">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, voluptates earum? Illo blanditiis, qui ut magni voluptatum sapiente nihil amet, nisi dolores aliquid, reprehenderit aperiam corrupti optio odit quod officiis quae. Libero perspiciatis eius, cupiditate enim rerum fugiat placeat impedit vitae temporibus, pariatur maiores repudiandae quis. Aspernatur possimus nemo enim amet aliquam iste maxime exercitationem porro totam et aliquid nesciunt nihil ducimus voluptatibus vitae, voluptate laboriosam a, magni necessitatibus quas repellat! Excepturi reiciendis tempora dignissimos earum delectus provident sequi minus atque cum, veniam amet vero velit nihil non, et nostrum repudiandae enim error! Animi pariatur officiis deserunt? Odit adipisci fugiat iure necessitatibus minus. Labore, odio! Soluta doloremque laboriosam quidem perferendis architecto ut aliquam sint totam assumenda! Molestias doloremque, cupiditate beatae ipsum aspernatur libero voluptatem labore delectus magnam ea dolor rem assumenda esse, odio ullam aut sit corporis impedit fuga possimus exercitationem adipisci. Quibusdam, aliquid impedit ea voluptatem voluptatum harum optio id ducimus quisquam, totam ullam consequuntur saepe minima voluptas dicta asperiores iure distinctio eos corrupti dolorum, dolor culpa ut? Totam, qui accusamus quae omnis cum eius consequuntur amet error quibusdam laboriosam officiis saepe quidem laborum autem accusantium soluta velit adipisci excepturi placeat at voluptatibus aspernatur! Id assumenda tempora sunt cumque.
+      <a href="/show/<%= content.slug %>" class="max-h-28 overflow-y-hidden desc px-3 pt-3 w-full" id="contentContainer">
+        <h1 class="font-bold font-roboto text-2xl"><%= content.judul %></h1>
+        <p class="text-[13px] font-roboto text-gray-600">
+          <%= new Date(content.createdAt).toLocaleDateString('id-ID', {
+            year: 'numeric', month: '2-digit', day: '2-digit'
+          }) %> 
+          <%= new Date(content.createdAt).toLocaleTimeString('id-ID', {
+            hour: '2-digit', minute: '2-digit'
+          }) %>
         </p>
-      </div>
-      <a class="text-blue-600 cursor-pointer selengkapnya self-start px-3 font-roboto">Lihat selengkapnya...</a>
+        
+        <p class="text-[15px] font-roboto">
+          <%= content.desc %>
+        </p>
+      </a>
+      <a class="text-blue-600 cursor-pointer selengkapnya self-start px-3 font-roboto" id="seeMoreLink">Lihat selengkapnya...</a>
       <div class="rounded mt-2 w-full bg-[#161616]">
         <video controls class="max-h-[480px] mx-auto">
-          <source src="/media/1727667872845.mp4">
+          <source src="/media/<%= content.file_name %>">
         </video>
       </div>
-      <div></div>
+      <div class="flex self-center w-full pl-2 mb-2">
+        <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      width="15px" height="15px" viewBox="0 0 442.04 442.04"
+      xml:space="preserve">
+        <g>
+            <g>
+                <path d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203
+                    c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219
+                    c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367
+                    c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021
+                    c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212
+                    c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071
+                    c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z"/>
+            </g>
+            <g>
+                <path d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188
+                    c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993
+                    c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5
+                    s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z"/>
+            </g>
+            <g>
+                <path d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z"/>
+            </g>
+        </g>
+        </svg>
+        <span class="text-[13px]"> <%= content.views %></span>
     </div>
-    <% } %>
+    </div>
+    <% }) %>
   </div>
   
-</body>
-<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+
 <script>
   let selengkapnya = document.querySelectorAll('.selengkapnya');
   let desc = document.querySelectorAll('.desc');
@@ -86,5 +64,25 @@
       a.classList.add('hidden')
     })
   }) 
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const contentContainer = document.getElementById('contentContainer');
+    const seeMoreLink = document.getElementById('seeMoreLink');
+
+    // Fungsi untuk memeriksa tinggi dan menyembunyikan tautan jika perlu
+    function checkHeight() {
+        const maxHeight = parseFloat(getComputedStyle(contentContainer).maxHeight);
+        const currentHeight = contentContainer.scrollHeight;
+
+        if (currentHeight < maxHeight) {
+            seeMoreLink.style.display = 'none'; // Sembunyikan tautan
+        } else {
+            seeMoreLink.style.display = 'block'; // Tampilkan tautan
+        }
+    }
+
+    // Memanggil fungsi untuk memeriksa tinggi saat halaman dimuat
+    checkHeight();
+});
+
 </script>
-</html>

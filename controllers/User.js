@@ -31,7 +31,7 @@ const userAuthenticate = async (req, res) => {
                     id : findEmail.id,
                     email : findEmail.email
                 }
-                return res.redirect('/admin')
+                return res.redirect('/admin/create')
             }
         }
         return res.status(400).send('Email || password salah')

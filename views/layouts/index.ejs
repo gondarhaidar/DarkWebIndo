@@ -3,10 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Document</title>
 </head>
-<body>
-  <%- body  %>
+<body class="bg-[#f7f7f8]">
+<nav class="shadow sticky top-0 bg-slate-800 box-content">
+  <div class="lg:max-w-screen-xl mx-auto flex justify-between p-3 box-content self-center gap-3">
+    <div class="flex self-center flex-5 tema">
+      <a href="/login" class="font-bold text-[17px] text-yellow-50">DarkWebIndo</a>
+    </div>
+    <form action="/home/search" method="get" class="flex md:flex-1 formInp">
+        <input type="search" name="q" class="w-full px-2 py-1 border shadow-md placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 rounded hidden md:block inpSer" placeholder="Cari video">
+        <button type="submit" class="bg-[#272626] text-white px-2 font-roboto rounded-r-md hidden md:block">Search</button>
+        <div class="flex justify-center self-center px-1 py-1 md:hidden" id="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="25px" height="25px" fill-rule="nonzero"><g fill="#fbf6f6" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M21,3c-9.39844,0 -17,7.60156 -17,17c0,9.39844 7.60156,17 17,17c3.35547,0 6.46094,-0.98437 9.09375,-2.65625l12.28125,12.28125l4.25,-4.25l-12.125,-12.09375c2.17969,-2.85937 3.5,-6.40234 3.5,-10.28125c0,-9.39844 -7.60156,-17 -17,-17zM21,7c7.19922,0 13,5.80078 13,13c0,7.19922 -5.80078,13 -13,13c-7.19922,0 -13,-5.80078 -13,-13c0,-7.19922 5.80078,-13 13,-13z"></path></g></g></svg>
+        </div>
+    </form>
+  </div>
+</nav>
+<%- body %>
+
 </body>
+<script>
+    let search = document.getElementById('search-icon');
+    let tema = document.querySelector('.tema');
+    let inpSer = document.querySelector('.inpSer');
+    let formInp = document.querySelector('.formInp')
+    search.addEventListener('click', ()=>{
+        inpSer.classList.remove('hidden');
+        inpSer.focus()
+    });
+    inpSer.addEventListener('focus', ()=>{
+        tema.classList.add('hidden')
+        formInp.classList.add('flex-1')
+    })
+    inpSer.addEventListener('blur', ()=>{
+        tema.classList.remove('hidden')
+        formInp.classList.remove('flex-1')
+        inpSer.classList.add('hidden')
+    })
+</script>
 </html>
