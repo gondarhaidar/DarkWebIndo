@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import bcrypt from 'bcrypt';
+const User = require("../models/User.js");
+const bcrypt = require('bcrypt');
 
 const userRegister = async (req, res) =>{
     try {
@@ -16,7 +16,8 @@ const userRegister = async (req, res) =>{
         })
         res.status(201).send('register user berhasil')
     } catch (error) {
-        return res.status(500).send('error 500')
+        console.log(error)
+        return res.status(500).json({error})
     }
 }
 
@@ -50,4 +51,4 @@ const logoutUser =  (req, res) => {
     })
 }
 
-export default {userRegister, userAuthenticate, logoutUser}
+module.exports =  {userRegister, userAuthenticate, logoutUser}

@@ -1,7 +1,7 @@
-import express from 'express';
-import Content from '../controllers/Content.js';
-import User from '../controllers/User.js';
-import auth from '../middleware/auth.js';
+const express = require('express');
+const Content = require('../controllers/Content.js');
+const User = require('../controllers/User.js');
+const auth = require('../middleware/auth.js');
 const router = express.Router();
 
 router.get('/', (req, res)=>{
@@ -29,5 +29,5 @@ router.get('/login', auth.guestUser, (req, res)=>{
 });
 router.post('/register',auth.guestUser, User.userRegister);
 router.post('/login', auth.guestUser, User.userAuthenticate);
-export default router
+module.exports = router
 /**************                        ***********/

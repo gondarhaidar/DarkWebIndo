@@ -1,19 +1,19 @@
-import express from 'express';
-import router from './route/index.js';
+const express = require('express');
+const router = require('./route/index.js');
 const app = express();
-import url from 'url';
-import path, { dirname } from 'path';
-import expressLayouts from 'express-ejs-layouts';
-import dotenv from 'dotenv';
-import sequelize from './config/config.js';
-import Content from './models/Content.js';
-import User from './models/User.js';
-import session from "express-session";
-import flash from 'connect-flash';
-import cookieParser from 'cookie-parser';
-import fs from 'fs';
+const url = require('url');
+const path = { dirname } = require('path');
+const expressLayouts = require('express-ejs-layouts');
+const dotenv = require('dotenv');
+const sequelize = require('./config/config.js');
+const Content = require('./models/Content.js');
+const User = require('./models/User.js');
+const session = require("express-session");
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const fs = require('fs');
 dotenv.config();
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+// const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const publicMedia = path.join(__dirname, 'public/media');
 if(!fs.existsSync('public/media')){
   fs.mkdirSync(publicMedia, {recursive : true});
@@ -22,7 +22,7 @@ if(!fs.existsSync('public/media')){
 app.use(cookieParser());
 
 app.use(session({
-  secret : process.env.SECRET,
+  secret : 'ujshfuiyr8SDGASDRGAEJ/tjgweTWE?GJweGVejfawWR?U2YRFGWjtgaPasjkf:iHIw',
   resave : false,
   saveUninitialized : true,
   cookie : {secure : false}
@@ -51,6 +51,12 @@ sequelize.sync({force : false})
 app.use((req, res)=>{
   res.send('error 404')
 })
-app.listen(process.env.DB_PORT, ()=>{
-  console.log(`server running on port ${process.env.DB_PORT}`)
+app.listen(3000, ()=>{
+  console.log(`server running on port ${3000}`)
 })
+
+// DB_NAME = gondarwe_darkweb
+// DB_HOST = localhost
+// DB_USER = gondarwe_usertes
+// DB_PW = gondar1919
+// SECRET = akjhfuiweweyr7wrui3whrnRGTRDGJTweqDFSDGJGSDGSTGwert5Wr52352%$RrfERtyyQTYGREHREHRAEHraehERAYHYHYHERHHHERATWEWEJAFAADFHeWEAAQWTWE$

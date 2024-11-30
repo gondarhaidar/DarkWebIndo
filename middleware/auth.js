@@ -12,4 +12,4 @@ const guestUser = (req, res, next)=>{
     req.flash('error_msg', 'anda sudah login');
     res.redirect('/admin/create')
 }
-export default {userAuthenticate, guestUser}
+module.exports =  {userAuthenticate, guestUser}

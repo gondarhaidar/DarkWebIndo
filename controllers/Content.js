@@ -1,8 +1,8 @@
-import Content from "../models/Content.js";
-import multer from "multer";
-import path from 'path';
-import { title } from "process";
-import { Op } from "sequelize";
+const Content = require("../models/Content.js")
+const multer = require("multer")
+const path = require('path')
+const { title } = require("process")
+const { Op } = require("sequelize")
 // import { title } from "process";
 
 const storage = multer.diskStorage({
@@ -113,4 +113,4 @@ const deleteContent = async (req, res) => {
 const editContent = async (req, res) => {
 
 }
-export default {getContent, createContent, updateContent, deleteContent, editContent, upload, adminDashboard, showContent, searchContent}
+module.exports =  {getContent, createContent, updateContent, deleteContent, editContent, upload, adminDashboard, showContent, searchContent}

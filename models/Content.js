@@ -1,5 +1,5 @@
-import sequelize from "../config/config.js";
-import { DataTypes } from "sequelize";
+const sequelize = require("../config/config.js");
+const { DataTypes } = require("sequelize");
 const Content = sequelize.define('Content', {
     judul : {
         type : DataTypes.STRING,
@@ -28,4 +28,4 @@ const Content = sequelize.define('Content', {
     timestamps : true,
     tableName : 'contents'
 })
-export default Content
+module.exports = Content
